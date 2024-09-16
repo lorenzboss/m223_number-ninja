@@ -1,10 +1,10 @@
 class NumberNinja
   def initialize
-    @secret_number = rand(0..100)
+    @secret_number = rand(0..10)
   end
 
   def play
-    puts "Willkommen bei NumberNinja! Errate die Zahl zwischen 0 und 100."
+    puts "Willkommen bei NumberNinja! Errate die Zahl zwischen 0 und 10."
     loop do
       print "Gib deine Vermutung ein: "
       guess = gets.chomp.to_i
@@ -12,10 +12,12 @@ class NumberNinja
       if guess == @secret_number
         puts "Glückwunsch! Du hast die Zahl erraten!"
         break
-      elsif guess < @secret_number
-        puts "Zu niedrig! Versuche es nochmal."
+      elsif guess < @secret_number && guess >= 0
+        puts "höher!"
+      elsif guess > @secret_number && guess <= 10
+        puts "niedriger!"
       else
-        puts "Zu hoch! Versuche es nochmal."
+        puts "Bitte gib eine Zahl zwischen 0 und 10 ein!"
       end
     end
   end
